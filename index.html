@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Preconceito Racial na Internet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #34495e;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        ul li {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* Responsividade para telas menores */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            ul li {
+                font-size: 16px;
+            }
+
+            .card {
+                margin: 15px 0;
+            }
+
+            .cta-btn {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+
+            .menu-toggle {
+                display: block;
+                margin-top: 10px;
+                text-align: right;
+            }
+        }
+
+        /* Adicionando um menu hambúrguer para telas menores */
+        @media screen and (max-width: 480px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .cta-btn {
+                font-size: 16px;
+                padding: 12px 24px;
+                margin-top: 20px;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Preconceito Racial na Internet</h1>
+    <p>Entenda os impactos do preconceito racial nas redes sociais e como podemos combatê-lo.</p>
+</header>
+
+<!-- Navegação com menu hambúrguer para telas pequenas -->
+<nav id="navbar">
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+    <ul>
+        <li><a href="#intro">Introdução</a></li>
+        <li><a href="#tipos">Tipos de Preconceito</a></li>
+        <li><a href="#impactos">Impactos</a></li>
+        <li><a href="#combate">Combate</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="intro" class="fadeIn">
+        <h2>O que é o Preconceito Racial na Internet?</h2>
+        <p>O preconceito racial na internet refere-se a atitudes discriminatórias e estigmatizantes baseadas em características raciais que se manifestam no ambiente online. A facilidade de anonimato nas redes sociais e fóruns permite que esses comportamentos sejam ainda mais exacerbados.</p>
+        <div class="card">
+            <img src="https://via.placeholder.com/800x400" alt="Imagem sobre o preconceito racial">
+            <h3>Racismo nas redes sociais</h3>
+            <p>A proliferação de comentários e postagens ofensivas nas redes sociais é uma das principais formas de preconceito racial na internet. Isso pode ocorrer em debates públicos ou até mesmo em mensagens privadas.</p>
+        </div>
+    </section>
+
+    <section id="tipos" class="fadeIn">
+        <h2>Tipos de Preconceito Racial Online</h2>
+        <p>Os tipos mais comuns de preconceito racial que ocorrem online incluem:</p>
+        <ul>
+            <li><strong>Comentários racistas:</strong> A disseminação de ideias preconceituosas em comentários de posts e vídeos.</li>
+            <li><strong>Memes racistas:</strong> A criação e compartilhamento de memes que estigmatizam grupos raciais.</li>
+            <li><strong>Cyberbullying:</strong> Ataques e ofensas direcionadas a indivíduos com base em sua raça ou etnia.</li>
+        </ul>
+    </section>
+
+    <section id="impactos" class="fadeIn">
+        <h2>Impactos do Preconceito Racial na Internet</h2>
+        <p>O preconceito racial online tem efeitos devastadores para as vítimas e para a sociedade:</p>
+        <ul>
+            <li><strong>Impacto emocional:</strong> As vítimas enfrentam sérias consequências emocionais, como ansiedade e depressão.</li>
+            <li><strong>Isolamento social:</strong> O preconceito pode levar ao isolamento social e ao afastamento das redes sociais.</li>
+            <li><strong>Reforço de estereótipos:</strong> O racismo online reforça estereótipos negativos, dificultando a construção de uma sociedade mais justa.</li>
+        </ul>
+    </section>
+
+    <section id="combate" class="fadeIn">
+        <h2>Como Combater o Preconceito Racial Online?</h2>
+        <p>Algumas medidas eficazes para combater o preconceito racial na internet incluem:</p>
+        <ul>
+            <li><strong>Denunciar:</strong> Denunciar postagens ou comportamentos racistas nas plataformas sociais.</li>
+            <li><strong>Educação e conscientização:</strong> Investir em programas educativos que promovam a igualdade racial.</li>
+            <li><strong>Criação de espaços inclusivos:</strong> Incentivar espaços online que promovam o respeito e a diversidade.</li>
+        </ul>
+        <a href="#" class="cta-btn">Saiba mais sobre como agir contra o racismo online</a>
+    </section>
+</main>
+
+<script>
+    // Script para alternar o menu hambúrguer
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>
